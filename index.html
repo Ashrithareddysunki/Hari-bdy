@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Birthday Surprise</title>
+  <style>
+    body {
+      background: #fff0f5;
+      font-family: 'Georgia', serif;
+      text-align: center;
+      padding: 50px;
+      white-space: pre-wrap;
+    }
+    #letter {
+      display: none;
+      background: white;
+      border-radius: 15px;
+      padding: 40px;
+      max-width: 700px;
+      margin: 40px auto 0 auto;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      text-align: left;
+      font-size: 18px;
+      line-height: 1.8;
+      color: #333;
+    }
+    h2 {
+      color: #ff3366;
+      text-align: center;
+    }
+    img {
+      display: block;
+      margin: 20px auto;
+      max-width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    #loginForm {
+      margin-top: 100px;
+    }
+    input[type="password"] {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      width: 200px;
+      margin-bottom: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: none;
+      background-color: #ff4d88;
+      color: white;
+      cursor: pointer;
+    }
+    .error {
+      color: red;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="loginForm">
+    <h1>Enter the Secret Password</h1>
+    <input type="password" id="password" placeholder="Enter password" required />
+    <br />
+    <button onclick="checkPassword()">Open Surprise 🎉</button>
+    <div id="error" class="error"></div>
+  </div>
+
+  <div id="letter">
+    <h2>Happy Birthday gundu gaaa❤️ 🎉</h2>
+    <img src="photo.jpg" alt="Us Together" />
+    <p>
+hello gunduuuuu!!!!😘😘  happy birthday raaa.....nuvvu naatho celebrate cheskuneee last birthday idiii..!! and may be nenu nee bdy inka jarapalekapovachuu endukantee nee wife vastundi next year nee bdy time ki anthaa😟😟... soooo ee bdy nenu neetho direct gaa interact ayyi jaripinchali anukunnanuuuu kuadrleduu clg start ayipoindii 😭and inkoti neeku bdy celebrate cheskodam anthaga nachhadu annav laast tym bdy kuudaa nyt dress lo jarupukunnav neekosam nenu oka shirt order pettaa adi veskoo kinda white pant veskoo alanee nenu ichina wallet and ah bracelet pettukoooo apudaina nenu neethopaatee unna ana feeling untundi nakuu and neeku kudaaa lee... manchigaa unduuu neeeku nachhina ammaini pelli cheskooo evaremannaruu anemii pattinchukokuuuu ippatidaaakaa nenu veru ika nundi veruuu nuv cheseee prathee panini support chesthaaa nee happiness ey naa happinesss emii alochinchoduuuu elaa undali anukuntunavoo alaa unduuuu neneppuduu neeeku support ganee untaaa epudaina low ga feel aythe okka cl ventaneee ethhesthaaa kaburlu cheppukundammm...love you a lot😭😭 happpy bdyyy raaaa annayyaaaa❤️❤️...inkaa chaalaa cheppali ani undiiii but enduku lee nee thala tinatam bee happyyyy..... uuu happyyyy.... meee happyyy.....byeeeee ❤️❤️❤️🤗🤗🤗   </p>
+  </div>
+
+  <!-- Hidden audio element -->
+  <audio id="bgMusic" src="nuvventhe_na_jathaga.mp3" loop></audio>
+
+<script>
+  const correctPassword = "29060707";  // change this if needed
+
+  function checkPassword() {
+    const entered = document.getElementById("password").value.trim();
+    const errorDiv = document.getElementById("error");
+    const letterDiv = document.getElementById("letter");
+    const loginForm = document.getElementById("loginForm");
+    const bgMusic = document.getElementById("bgMusic");
+
+    if (entered === correctPassword) {
+      loginForm.style.display = "none";
+      letterDiv.style.display = "block";
+      errorDiv.textContent = "";
+
+      // Play the background music
+      bgMusic.play().catch(() => {
+        // In some browsers, autoplay might be blocked
+        // You could add a user gesture to start music if needed
+      });
+    } else {
+      errorDiv.textContent = "Incorrect password. Please try again.";
+    }
+  }
+
+  // Press Enter to submit
+  document.getElementById("password").addEventListener("keypress", function(e) {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      checkPassword();
+    }
+  });
+</script>
+
+</body>
+</html>
